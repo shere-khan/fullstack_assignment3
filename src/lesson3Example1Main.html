@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function myFunction() {
+			var the_node = document.getElementById("myList").lastChild;
+			var the_clone = the_node.cloneNode();
+			document.getElementById("myList").appendChild(the_clone);
+		}
+	</script>
+	<ul id="myList">
+		<li>Good morning</li>
+		<li>Hello</li>
+	</ul>
+	<p>Click button to cloneNode()</p>
+	<button onclick="myFunction()">Copy it!</button>
+</body>
+</html>
