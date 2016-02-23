@@ -8,7 +8,7 @@
 	<script type="text/javascript">
 		function myFunction() {
 			var the_node = document.getElementById("myList").lastChild;
-			var the_clone = the_node.cloneNode();
+			var the_clone = the_node.cloneNode(true);
 			document.getElementById("myList").appendChild(the_clone);
 		}
 	</script>
