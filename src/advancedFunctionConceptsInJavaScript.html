@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// this function is created when the page is loaded
+	function do_something() {
+		alert("page loaded");
+		// this function is created at this point in the code
+		var func = function(event) {
+		}
+	}
+
+	// Example of a function that takes a function as a parameter
+	function divided(fn, num, div) {
+		if (fn(num, div)) {
+			alert();
+			return num / div;
+		} else {
+			alert("not ok");
+		}
+	}
+
+	// Function to pass as parameter
+	function check(a, b) {
+		if (b != 0)
+			return true;
+		return false;
+	}
+
+	result = myDivide(check, 44, 1);
+	result = myDivide(check, 44, 0);
+
+	// Example of a function that returns a function
+	function counter() {
+		var count = 0;
+
+		return function() {
+			count++;
+			alert(count);
+		}
+	}
+
+	var count = counter();
+	count();
+	count();
+	count();
+</script>
+</head>
+<body id="theBody">
+	<img alt="words" src="stonges.png" id="stones_image"
+		style="position: absolute; left: 0">
+</body>
+</html>
