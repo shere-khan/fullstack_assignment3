@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// this function is created when the page is loaded
+	function do_something() {
+		alert("page loaded");
+
+		// sets up handler when web page loads 
+		window.onload = do_something;
+
+		// same result as above
+		window.addEventListener("load", do_something);
+
+		// event handlers are executed in the order they are added
+
+		// removing event listener
+		var theBody = document.getElementById("theBody");
+		theBody.removeEventListener("load", do_something());
+
+		// this function is created at this point in the code
+		var func = function(event) {
+		}
+	}
+</script>
+</head>
+<body id="theBody">
+	<img alt="words" src="stonges.png" id="stones_image"
+		style="position: absolute; left: 0">
+</body>
+</html>
