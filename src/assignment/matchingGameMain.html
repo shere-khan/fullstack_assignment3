@@ -20,13 +20,17 @@ img {
 }
 </style>
 <script type="text/javascript">
-	var numberOfFaces, theLeftSide, theRightSide;
+	var numberOfFaces, theLeftSide, theRightSide, theBody;
 
-	function generateFaces() {
+	function onLoad () {
 		numberOfFaces = 5;
 		theLeftSide = document.getElementById("leftSide");
 		theRightSide = document.getElementById("rightSide");
-
+		
+		generateFaces();
+	}
+	
+	function generateFaces() {
 		for (var i = 0; i < numberOfFaces; i++) {
 			var imgNode = document.createElement('img');
 			imgNode.src = 'img/smile.png';
@@ -44,10 +48,24 @@ img {
 				break;
 			child = child.nextSibling;
 		}
+
+		theLeftSide.lastChild.onclick = function nextLevel(event) {
+			event.stopPropagation();
+			numberOfFaces += 5;
+			generateFaces();
+		}
+
+		theBody = document.getElementById('theBody');
+		theBody.onclick = function gameOver() {
+			alert('Game Over!');
+
+			theBody.onclick = null;
+			theLeftSide.lastChild.onclick = null;
+		}
 	}
 </script>
 </head>
-<body id="theBody" onload="generateFaces()">
+<body id="theBody" onload="onLoad()">
 	<h2>Matching Game</h2>
 	<p>Click on the extra smiling face on the left</p>
 	<div id="leftSide" class="mainDivs"></div>
