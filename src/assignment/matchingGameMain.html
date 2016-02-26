@@ -22,14 +22,14 @@ img {
 <script type="text/javascript">
 	var numberOfFaces, theLeftSide, theRightSide, theBody;
 
-	function onLoad () {
+	function onLoad() {
 		numberOfFaces = 5;
 		theLeftSide = document.getElementById("leftSide");
 		theRightSide = document.getElementById("rightSide");
-		
+
 		generateFaces();
 	}
-	
+
 	function generateFaces() {
 		for (var i = 0; i < numberOfFaces; i++) {
 			var imgNode = document.createElement('img');
@@ -52,6 +52,8 @@ img {
 		theLeftSide.lastChild.onclick = function nextLevel(event) {
 			event.stopPropagation();
 			numberOfFaces += 5;
+			removeAllChildren(theLeftSide);
+			removeAllChildren(theRightSide);
 			generateFaces();
 		}
 
@@ -61,6 +63,12 @@ img {
 
 			theBody.onclick = null;
 			theLeftSide.lastChild.onclick = null;
+		}
+	}
+
+	function removeAllChildren(theNode) {
+		while (theNode.firstChild) {
+			theNode.removeChild(theNode.firstChild);
 		}
 	}
 </script>
